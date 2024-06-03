@@ -2,6 +2,9 @@ package Tests;
 
 import HelperMethods.ElementMethods;
 import HelperMethods.FrameMethods;
+import Pages.AlertWindowFramePage;
+import Pages.FramePage;
+import Pages.HomePage;
 import SharedData.SharedData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -14,30 +17,15 @@ public class FrameTest extends SharedData {
 
     @Test
     public void metodaTest() {
-        ElementMethods elementMethods = new ElementMethods(getWebDriver());
-        FrameMethods frameMethods = new FrameMethods(getWebDriver());
 
+        HomePage homePage = new HomePage(getWebDriver());
+        homePage.navigateToAlertFrameWindowPage();
 
-        elementMethods.scrollElementByPixel(0,450);
+        AlertWindowFramePage alertWindowFramePage = new AlertWindowFramePage(getWebDriver());
+        alertWindowFramePage.navigateToFramesPage();
 
-        WebElement windowField = getWebDriver().findElement(By.xpath("//h5[text()='Alerts, Frame & Windows']"));
-        elementMethods.clickElement(windowField);
-
-        elementMethods.scrollElementByPixel(0,450);
-
-        WebElement frameField = getWebDriver().findElement(By.xpath("//span[text()='Frames']"));
-        elementMethods.clickElement(frameField);
-
-        //interactionam cu un iFrame
-        frameMethods.switchSpecificIframe("frame1");
-        WebElement frame1Element = getWebDriver().findElement(By.id("sampleHeading"));
-        elementMethods.printElementText(frame1Element);
-
-        // specificam sa revina la frameul curent
-        frameMethods.switchParentFramer();
-        frameMethods.switchSpecificIframe("frame2");
-        WebElement frame2Element = getWebDriver().findElement(By.id("sampleHeading"));
-        elementMethods.printElementText(frame2Element);
+        FramePage framePage = new FramePage(getWebDriver());
+        framePage.dealWithIframe();
 
     }
 }

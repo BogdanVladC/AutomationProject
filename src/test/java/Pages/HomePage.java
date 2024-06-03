@@ -14,11 +14,17 @@ public class HomePage extends BasePage {
     }
 
     @FindBy(xpath = "//h5[text()='Alerts, Frame & Windows']")
-    private WebElement formsField;
+    private WebElement alertField;
+    @FindBy(xpath = "//h5[text()='Forms']")
+    private  WebElement formsField;
 
     public void navigateToAlertFrameWindowPage(){
         elementMethods.scrollElementByPixel(0, 450);
-        elementMethods.clickElement(formsField);
+        elementMethods.clickElement(alertField);
 
+    }
+    public void navigateToFormsPage(){
+        elementMethods.scrollElementByPixel(0, 450);
+        elementMethods.clickElement(formsField);
     }
 }
