@@ -5,7 +5,11 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 
+
+import javax.annotation.Nonnull;
 import java.io.File;
 import java.util.Arrays;
 import java.util.List;
@@ -118,6 +122,45 @@ public class PracticeFormPage extends BasePage{
     public void clickSubmit(){
       elementMethods.clickElemForce(submitField);
     }
+    public void validatePracticeFormTable(String firstNameValue, String lastNameValue, String userEmailValue, String genderValue, String userMobileNumberValue,
+                                          String subjectsValue, List<String> Hobbies, String filePath, String addressFieldValue, String selectStateInputValue, String inputCityFieldValue){
+        Assert.assertEquals(labelFields.get(0).getText(),"Student Name");
+        Assert.assertEquals(valueFields.get(0).getText(),firstNameValue+" "+lastNameValue);
+
+        Assert.assertEquals(labelFields.get(1).getText(),"Student Email");
+        Assert.assertEquals(valueFields.get(1).getText(),userEmailValue);
+
+        Assert.assertEquals(labelFields.get(2).getText(),"Gender");
+        Assert.assertEquals(valueFields.get(2).getText(),genderValue);
+
+        Assert.assertEquals(labelFields.get(3).getText(),"Mobile");
+        Assert.assertEquals(valueFields.get(3).getText(),userMobileNumberValue);
+
+        Assert.assertEquals(labelFields.get(4).getText(),"Date of Birth");
+        Assert.assertEquals(valueFields.get(4).getText(),"17 October,1996");
+
+        Assert.assertEquals(labelFields.get(5).getText(),"Subjects");
+        Assert.assertEquals(valueFields.get(5).getText(),subjectsValue);
+
+        Assert.assertEquals(labelFields.get(6).getText(),"Hobbies");
+        for (Integer index=0; index< Hobbies.size(); index++) {
+
+            Assert.assertTrue(valueFields.get(6).getText().contains(Hobbies.get(index)));
+        }
+
+        Assert.assertEquals(labelFields.get(7).getText(),"Picture");
+        String[] arrayFile = filePath.split("/");
+        Integer indexNecesar = arrayFile.length - 1;
+        Assert.assertEquals(valueFields.get(7).getText(),arrayFile[indexNecesar]);
+
+        Assert.assertEquals(labelFields.get(8).getText(),"Address");
+        Assert.assertEquals(valueFields.get(8).getText(),addressFieldValue);
+
+        Assert.assertEquals(labelFields.get(9).getText(),"State and City");
+        Assert.assertEquals(valueFields.get(9).getText(),selectStateInputValue+" "+inputCityFieldValue);
+    }
+
+
 
 
 

@@ -54,46 +54,9 @@ public class PracticeFormTest extends SharedData {
         practiceFormPage.fillState(selectStateInputValue);
         practiceFormPage.fillCity(inputCityFieldValue);
         practiceFormPage.clickSubmit();
+        practiceFormPage.validatePracticeFormTable(firstNameValue,lastNameValue,userEmailValue,genderValue,userMobileNumberValue,
+                subjectsValue,Hobbies,filePath,addressFieldValue,selectStateInputValue,inputCityFieldValue);
 
-//        //validam tabelu cu valori
-//
-//        List<WebElement> labelFields = getWebDriver().findElements(By.xpath("//table/tbody/tr/td[1]"));
-//        List<WebElement> valueFields = getWebDriver().findElements(By.xpath("//table/tbody/tr/td[2]"));
-//
-//        Assert.assertEquals(labelFields.get(0).getText(),"Student Name");
-//        Assert.assertEquals(valueFields.get(0).getText(),firstNameValue+" "+lastNameValue);
-//
-//        Assert.assertEquals(labelFields.get(1).getText(),"Student Email");
-//        Assert.assertEquals(valueFields.get(1).getText(),userEmailValue);
-//
-//        Assert.assertEquals(labelFields.get(2).getText(),"Gender");
-//        Assert.assertEquals(valueFields.get(2).getText(),genderValue);
-//
-//        Assert.assertEquals(labelFields.get(3).getText(),"Mobile");
-//        Assert.assertEquals(valueFields.get(3).getText(),userMobileNumberValue);
-//
-//        Assert.assertEquals(labelFields.get(4).getText(),"Date of Birth");
-//        //Assert.assertEquals(valueFields.get(4).getText(),"22 May,2024");
-//
-//        Assert.assertEquals(labelFields.get(5).getText(),"Subjects");
-//        Assert.assertEquals(valueFields.get(5).getText(),subjectsValue);
-//
-//        Assert.assertEquals(labelFields.get(6).getText(),"Hobbies");
-//        for (Integer index=0; index< Hobbies.size(); index++) {
-//
-//            Assert.assertTrue(valueFields.get(6).getText().contains(Hobbies.get(index)));
-//        }
-//
-//        Assert.assertEquals(labelFields.get(7).getText(),"Picture");
-//        String[] arrayFile = filePath.split("/");
-//        Integer indexNecesar = arrayFile.length - 1;
-//        Assert.assertEquals(valueFields.get(7).getText(),arrayFile[indexNecesar]);
-//
-//        Assert.assertEquals(labelFields.get(8).getText(),"Address");
-//        Assert.assertEquals(valueFields.get(8).getText(),addressFieldValue);
-//
-//        Assert.assertEquals(labelFields.get(9).getText(),"State and City");
-//        Assert.assertEquals(valueFields.get(9).getText(),selectStateInputValue+" "+inputCityFieldValue);
     }
 
 }
