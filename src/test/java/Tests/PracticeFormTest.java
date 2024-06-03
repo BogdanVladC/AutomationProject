@@ -37,6 +37,8 @@ public class PracticeFormTest extends SharedData {
         String genderValue = "Female";
         String subjectsValue = "Economics";
         String filePath = "src/test/resources/New Text Document.txt";
+        String selectStateInputValue = "NCR";
+        String inputCityFieldValue="Delhi";
 
         PracticeFormPage practiceFormPage = new PracticeFormPage(getWebDriver());
         practiceFormPage.fillFirstName(firstNameValue);
@@ -49,20 +51,10 @@ public class PracticeFormTest extends SharedData {
         practiceFormPage.uploadPicture(filePath);
         practiceFormPage.fillAddress(addressFieldValue);
         practiceFormPage.fillHobbies(Hobbies);
+        practiceFormPage.fillState(selectStateInputValue);
+        practiceFormPage.fillCity(inputCityFieldValue);
+        practiceFormPage.clickSubmit();
 
-
-//        WebElement selectStateInput = getWebDriver().findElement(By.id("react-select-3-input"));
-//        String selectStateInputValue = "NCR";
-//        elementMethods.fillPressElement(selectStateInput,selectStateInputValue,Keys.ENTER);
-//
-//
-//        WebElement inputCityField=getWebDriver().findElement(By.id("react-select-4-input"));
-//        String inputCityFieldValue="Delhi";
-//        elementMethods.fillPressElement(inputCityField,inputCityFieldValue,Keys.ENTER);
-//
-//        WebElement submitField= getWebDriver().findElement(By.id("submit"));
-//        elementMethods.clickElement(submitField);
-//
 //        //validam tabelu cu valori
 //
 //        List<WebElement> labelFields = getWebDriver().findElements(By.xpath("//table/tbody/tr/td[1]"));
