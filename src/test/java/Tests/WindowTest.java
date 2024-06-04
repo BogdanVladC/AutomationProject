@@ -2,6 +2,9 @@ package Tests;
 
 import HelperMethods.ElementMethods;
 import HelperMethods.WindowMethods;
+import Pages.AlertWindowFramePage;
+import Pages.BrowserWindowPage;
+import Pages.HomePage;
 import SharedData.SharedData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -17,34 +20,16 @@ public class WindowTest extends SharedData {
 
     @Test
     public void metodaTest(){
-        ElementMethods elementMethods = new ElementMethods(getWebDriver());
-        WindowMethods windowMethods = new WindowMethods(getWebDriver());
+        HomePage  homePage = new HomePage(getWebDriver());
+        homePage.navigateToAlertFrameWindowPage();
 
-        elementMethods.scrollElementByPixel(0,450);
+        AlertWindowFramePage alertWindowFramePage = new AlertWindowFramePage(getWebDriver());
+        alertWindowFramePage.navigateToBrowserWindowPage();
 
-        WebElement windowField = getWebDriver().findElement(By.xpath("//h5[text()='Alerts, Frame & Windows']"));
-        elementMethods.clickElement(windowField);
+        BrowserWindowPage browserWindowPage = new BrowserWindowPage(getWebDriver());
+        browserWindowPage.interactNewWindow();
+        browserWindowPage.interactNewWindow();
 
-        elementMethods.scrollElementByPixel(0,450);
-
-        WebElement browserWindowField = getWebDriver().findElement(By.xpath("//span[text()='Browser Windows']"));
-        elementMethods.clickElement(browserWindowField);
-
-        WebElement newTabButton = getWebDriver().findElement(By.id("tabButton"));
-        elementMethods.clickElement(newTabButton);
-
-        //trebuie sa indentificam nr de taburi deschise
-        windowMethods.switchSpecificTabWindow(1);
-        //ca sa inchidem tab curent se inchide cu close
-        // broserul se inchide cu quit
-        windowMethods.closeCurrentWindow();
-        windowMethods.switchSpecificTabWindow(0);
-
-        WebElement newWindowButton = getWebDriver().findElement(By.id("windowButton"));
-        elementMethods.clickElement(newWindowButton);
-        windowMethods.switchSpecificTabWindow(1);
-        windowMethods.closeCurrentWindow();
-        windowMethods.switchSpecificTabWindow(0);
 
     }
 }
