@@ -1,9 +1,11 @@
 package Tests;
 
 import HelperMethods.ElementMethods;
+import ObjectData.WebTableObject;
 import Pages.ElementsPage;
 import Pages.HomePage;
 import Pages.WebTablePage;
+import PropertyUtility.PropertyUtility;
 import SharedData.SharedData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -16,6 +18,9 @@ public class WebTableTest extends SharedData {
 
     @Test
     public void metodaTest(){
+        PropertyUtility propertyUtility = new PropertyUtility("WebTableData");
+        WebTableObject webTableObject = new WebTableObject(propertyUtility.getAllData());
+
 
         HomePage homePage = new HomePage(getWebDriver());
         homePage.navigateToElementsPage();
@@ -23,17 +28,13 @@ public class WebTableTest extends SharedData {
         ElementsPage elementsPage = new ElementsPage(getWebDriver());
         elementsPage.navigateToWebTablesPage();
 
-        String firstNameValue = "Bogdan";
-        String lastNameValue = "Cristea";
-        String userEmailValue = "cristea.bogdan@gmail.com";
-        String userAgeValue = "25";
-        String userSalaryValue = "2500";
-        String userDepartmentValue = "QMM";
-        String userAgeModifyValue = "29";
-        String firstNameModifyValue = "Vlad";
         WebTablePage webTablePage =new WebTablePage(getWebDriver());
-        webTablePage.addNewEntry(firstNameValue,lastNameValue,userEmailValue,userAgeValue,userSalaryValue,userDepartmentValue);
-        webTablePage.editEntry(firstNameModifyValue,userAgeModifyValue);
+        webTablePage.addNewEntry(webTableObject);
+
+        webTableObject.setFirstNameValue("Vlad");
+        webTableObject.setUserAgeValue("");
+
+        webTablePage.editEntry(webTableObject);
         webTablePage.deleteEntry();
     }
 }
