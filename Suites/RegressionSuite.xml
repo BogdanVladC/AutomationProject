@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite name="Regression Suite">
-    <test name="Regression suite" >
+    <test name="Regression Suite" >
         <packages>
             <package name = "Tests.*"/>
         </packages>
