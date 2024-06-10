@@ -51,7 +51,7 @@ public class WebTablePage extends BasePage{
     }
 
     public void deleteEntry(){
-      elementMethods.clickElement(deleteButton);
+      elementMethods.clickElemForce(deleteButton);
     }
 
 
