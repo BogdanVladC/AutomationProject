@@ -46,12 +46,12 @@ public class ElementMethods {
     }
     public void fillElement(WebElement element, String value){
         waitVisibleElement(element);
-        element.sendKeys(value );
+        element.sendKeys(value);
     }
     public void refillElement(WebElement element,String value){
         waitVisibleElement(element);
         element.clear();
-        element.sendKeys(value );
+        element.sendKeys(value);
     }
 
     public void selectTextElement(WebElement element,String value){
