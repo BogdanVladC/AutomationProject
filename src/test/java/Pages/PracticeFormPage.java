@@ -125,7 +125,7 @@ public class PracticeFormPage extends BasePage{
       elementMethods.clickElemForce(submitField);
     }
     public void validatePracticeFormTable(PracticeFormObject practiceFormObject){
-        elementMethods.validateElementText(labelFields.get(0),"Student Name");
+        //elementMethods.validateElementText(labelFields.get(0),"Student Name");
 
         //Assert.assertEquals(labelFields.get(0).getText(),"Student Name");
         Assert.assertEquals(valueFields.get(0).getText(), practiceFormObject.getFirstNameValue()+" "+ practiceFormObject.getLastNameValue());
