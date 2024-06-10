@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<suite name="Feature Suite">
-    <test name="Feature Suite" >
+<suite name="FeatureSuite">
+    <test name="FeatureSuite" >
         <classes>
             <class name = "Tests.AlertTest"/>
             <class name = "Tests.WindowTest"/>
