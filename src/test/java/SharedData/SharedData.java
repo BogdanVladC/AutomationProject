@@ -11,17 +11,18 @@ import java.time.Duration;
 public class SharedData {
     private WebDriver webDriver;
 
-    @BeforeMethod
+
     public void prepareDriver(){
        webDriver = new BrowserFactory().getBrowserInstance();
 
     }
-    @AfterMethod
     public void clearDriver(){
+
         webDriver.quit();
     }
 
     public WebDriver getWebDriver() {
+
         return webDriver;
     }
 }

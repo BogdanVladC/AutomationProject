@@ -1,22 +1,12 @@
 package Tests;
 
-import HelperMethods.ElementMethods;
-import HelperMethods.WindowMethods;
 import Pages.AlertWindowFramePage;
 import Pages.BrowserWindowPage;
 import Pages.HomePage;
-import SharedData.SharedData;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
+import SharedData.Hooks;
 import org.testng.annotations.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class WindowTest extends SharedData {
+public class WindowTest extends Hooks {
 
     @Test
     public void metodaTest(){
@@ -27,7 +17,7 @@ public class WindowTest extends SharedData {
         alertWindowFramePage.navigateToBrowserWindowPage();
 
         BrowserWindowPage browserWindowPage = new BrowserWindowPage(getWebDriver());
-        browserWindowPage.interactNewWindow();
+        browserWindowPage.interactWithNewTabButton();
         browserWindowPage.interactNewWindow();
 
 
