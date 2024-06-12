@@ -36,4 +36,13 @@ jobs:
     - name: RunAutomationTests
       run: mvn clean install -DcIcd=true -Dbrowser=${{ github.event.inputs.browser }} -DsuiteXmlFile=Suites/${{ github.event.inputs.suite }} -PCustomSuite
 
+    - name: Publish suite results
+      if: always()
+      uses: actions/upload-artifact@v2
+      with:
+          name: SuiteResults
+          path: |
+            target/logs/Suite.log
+            
+
 
