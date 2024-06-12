@@ -27,7 +27,7 @@ public class HomePage extends BasePage {
     public void navigateToAlertFrameWindowPage(){
         elementMethods.scrollElementByPixel(0, 450);
         LoggerUtillity.infoTest("The user scroll down the page");
-        elementMethods.clickElement(alertField);
+        elementMethods.clickElemForce(alertField);
         LoggerUtillity.infoTest("The user clicks the alertField element");
 
     }

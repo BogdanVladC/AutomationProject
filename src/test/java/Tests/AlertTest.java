@@ -15,7 +15,7 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class AlertTest extends SharedData.Hooks {
+public class AlertTest extends Hooks {
 
     @Test
     public void metodaTest() {
