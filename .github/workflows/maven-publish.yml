@@ -42,7 +42,7 @@ jobs:
       with:
           name: SuiteResults
           path: |
-            target/logs/Suite.log
+            target/logs/Suites.log
             
 
 
