@@ -9,6 +9,7 @@ public class LoggerUtillity {
     private static Logger logger = LogManager.getLogger();
 
     public static void  startTestCase(String testCase){
+
         logger.info("**** Execution Started : "+testCase+" ****");
     }
 
